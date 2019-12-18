@@ -1,3 +1,4 @@
 import app from './app';
 
-app.listen(3333);
+const port = parseInt(process.env.PORT || '3333', 10);
+app.listen(port);

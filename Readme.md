@@ -37,7 +37,7 @@ docker run --name desafiofinal_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432
 3. Execute as migrations:
 
 ```javascript
-yarn sequelize db:migrate:all
+yarn sequelize db:migrate
 ```
 
 4. Execute as seeds:
