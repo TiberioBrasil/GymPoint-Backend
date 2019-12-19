@@ -6,10 +6,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.js",
+    "predev": "sequelize db:migrate",
+    "dev": "nodemon -L src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
     "queue": "nodemon src/queue.js",
-    "build": "sucrase ./src -d ./dist --transforms imports"
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "docker:yarn": "docker-compose run --rm app yarn",
+    "docker:yarn:migrate": "yarn docker:yarn sequelize db:migrate"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

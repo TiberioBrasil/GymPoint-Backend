@@ -1,3 +1,10 @@
+# deploy scripts
+deploy/
+
+# deploy scripts cache
+deploy/__pycache__
+deploy/**/*.pyc
+
 # git and docker files
 .git
 .git*
