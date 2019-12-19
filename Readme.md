@@ -28,44 +28,18 @@ Para o desenvolvimento da aplicação doram utilziadas as seguintes ferramentas:
 
 1. Crie um arquivo [.env](https://www.npmjs.com/package/dotenv) para rodar o projeto. Consulte o arquivo **.env.example** para verificar quais as variáveis necessárias.
 
-2. Crie o banco de dados PostgreSQL através de um container do Docker:
+2. Para iniciar a ferramenta:
+   - Inicia os containers;
+   - Executa o comando `yarn`;
+   - Rodas as migrations.
 
-```javascript
-docker run --name desafiofinal_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 postgres:11
+```bash
+yarn docker:yarn || docker-compose run --rm app yarn \
+&& docker-compose up
 ```
 
-3. Execute as migrations:
+3. Para executrar as Seeds:
 
 ```javascript
-yarn sequelize db:migrate
-```
-
-4. Execute as seeds:
-
-```javascript
-yarn sequelize db:seed:all
-```
-
-5. Crie o gerenciador de filas Redis através de um container do Docker:
-
-```javascript
-docker run --name desafiofinal_redis -p 6379:6379 -d -t redis:alpine
-```
-
-6. Para realizar o build, utilize o comando:
-
-```javascript
-yarn build
-```
-
-7. Inicie o gerenciador de filas
-
-```javascript
-yarn queue
-```
-
-7. Para rodar o projeto em modo de DEBUG, utilize o comando
-
-```javascript
-yarn queue
+yarn docker:yarn || docker-compose run --rm app yarn sequelize db:seed:all
 ```
